@@ -1,3 +1,5 @@
 # DSA Practice
 
-This is just a repo filled with implementations of some data structures and algorithms.
+I am following Tim Roughgarden's [Algorithms Illuminated](https://algorithmsilluminated.org) book series to learn more about data structures and algorithms.
+
+This repo is just some selected implementations of some of the algorithms that are talked about in the series.
