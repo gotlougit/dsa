@@ -18,24 +18,20 @@ typedef struct vertex {
 
 /* Basic insertion, deletion operations for graph*/
 
-vertex insertVertex(vertex vgraph, int value) {
+void insertVertex(vertex *vgraph, int value) {
 
 	vertex *newvertex = (vertex *) malloc(sizeof(vertex));
 
-	if (newvertex == NULL) {
-		free(newvertex);
-		return vgraph;
-	} else {
-		newvertex->value = value;
-		newvertex->explored = false;
-		newvertex->next = &vgraph;
-		vgraph = *newvertex;
-		printf("%d ", value);
-		return vgraph;
+	if (newvertex != NULL) {
+		*newvertex = *vgraph;
+		vgraph->value = value;
+		vgraph->explored = false;
+		vgraph->next = newvertex;
 	}
+
 }
 
-/*WIP graph printing code*/
+/*Graph printing code*/
 
 void printGraph(vertex *graph, int n) {
 
