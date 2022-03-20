@@ -17,7 +17,7 @@ typedef struct vertex {
 
 } vertex;
 
-/* Basic insertion, deletion operations for graph*/
+/* Basic insertion for graph*/
 
 void insertVertex(vertex *vgraph, int value, bool end) {
 
