@@ -12,7 +12,6 @@ typedef struct vertex {
 
 	int ivalue;
 	int value;
-	bool explored;
 	struct vertex *next;
 
 } vertex;
@@ -27,7 +26,6 @@ void insertVertex(vertex *vgraph, int value, bool end) {
 		*newvertex = *vgraph;
 		vgraph->ivalue = (int) (end);
 		vgraph->value = value;
-		vgraph->explored = false;
 		vgraph->next = newvertex;
 	}
 
