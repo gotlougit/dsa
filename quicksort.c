@@ -2,43 +2,41 @@
 #include <stdlib.h>
 #include <time.h>
 
-int _partition(int arr[], int start, int end) {
+int partition(int arr[], int start, int end) {
 
-	int least_index = start - 1;
+	if (start < end) {
 
-	printf("initial: ");
-	printArray(arr, start, end);
+		int least_index = start - 1;
 
-	for (int i = start; i < end; i++) {
-		if (arr[i] <= arr[end]) {
-			least_index++;
-			if (least_index != i) {
-				int temp = arr[least_index];
-				arr[least_index] = arr[i];
-				arr[i] = temp;
+		printf("initial: ");
+		printArray(arr, start, end);
+
+		for (int i = start; i < end; i++) {
+			if (arr[i] <= arr[end]) {
+				least_index++;
+				if (least_index != i) {
+					int temp = arr[least_index];
+					arr[least_index] = arr[i];
+					arr[i] = temp;
+				}
 			}
+
+			printf("\nAfter iteration got: ");
+			printArray(arr, start, end);
+			printf("least_index: %d, iter: %d\n", least_index, i);
 		}
 
-		printf("\nAfter iteration got: ");
+		least_index++;
+		int temp = arr[least_index];
+		arr[least_index] = arr[end];
+		arr[end] = temp;
+		
+		printf("After loop got: ");
 		printArray(arr, start, end);
-		printf("least_index: %d, iter: %d\n", least_index, i);
+
+		return least_index;
+
 	}
-
-	least_index++;
-	int temp = arr[least_index];
-	arr[least_index] = arr[end];
-	arr[end] = temp;
-	
-	printf("After loop got: ");
-	printArray(arr, start, end);
-
-	return least_index;
-}
-
-int partition(int arr[], int start, int end) {
-	if (start < end) {
-		_partition(arr, start, end);		
-	} 
 }
 
 void quickSort(int arr[], int start, int end) {
